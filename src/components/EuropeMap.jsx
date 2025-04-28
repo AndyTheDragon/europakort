@@ -75,8 +75,10 @@ export function EuropeMap() {
           height: "100%",
         }} />
       </div>
-      <CountryInfo countryInfo={countryInfo} />
-      { countryInfo && <WeatherInfo weatherInfo={weatherInfo} /> }
+      <div className="row">
+        <CountryInfo countryInfo={countryInfo} />
+        { countryInfo && <WeatherInfo weatherInfo={weatherInfo} /> }
+      </div>
     </>
   );
 }
@@ -87,7 +89,7 @@ export function CountryInfo({ countryInfo }) {
   }
   let currency = Object.values(countryInfo.currencies)[0].name;
   return (
-    <div>
+    <div className="col-5 card ms-5 m-3">
       <h2>
         {countryInfo.flag} {countryInfo.name.common} details
       </h2>
@@ -107,7 +109,7 @@ export function WeatherInfo({ weatherInfo }) {
         return <p>Loading weather info</p>;
     }
     return (
-        <div>
+        <div className="col-5 card m-3">
             <h3>Vejret i {weatherInfo.name}</h3>
             <p>
                 <strong>Temperatur:</strong> {weatherInfo.main.temp}
