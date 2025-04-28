@@ -61,8 +61,9 @@ export function EuropeMap() {
         .then(data => setWeatherInfo(data))
         .catch(error => console.error("Error fetching from Weather API", error));
     }
+  },[countryInfo]);
 
-  },[countryInfo])
+
 
   return (
     <>
@@ -75,7 +76,7 @@ export function EuropeMap() {
         }} />
       </div>
       <CountryInfo countryInfo={countryInfo} />
-      { countryInfo && <WeatherInfo waetherInfo={weatherInfo} /> }
+      { countryInfo && <WeatherInfo weatherInfo={weatherInfo} /> }
     </>
   );
 }
